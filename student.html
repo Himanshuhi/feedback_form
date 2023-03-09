@@ -20,7 +20,7 @@
         </div>
 
         <div class="a">
-            <form method="post">
+            <form method="post" name="submit-to-google-sheet">
 
 
 
@@ -233,9 +233,11 @@
                 </table>
 
 
-                <input type="submit" class="form-control" fdprocessedid="galca4">
+                <input type="submit" class="form-control" fdprocessedid="galca4" >
                 <br>
+                <span id="Success"></span><br>
             </form>
+            
         </div>
         <footer>
             <div class="footer-content" style="background-color: #010101; text-align: center; padding: 20px;">
@@ -245,6 +247,23 @@
 
 
     </div>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzotttpTjoviM2EaQoQOA6HddhrzhZPpzasib4Nqe2IxoWeXuDXgW-VHSMAp2lWjixSBg/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const Success=document.getElementById('success');
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                success.innerHTML="Data successfully submitted";
+                setTimeout(function(){
+                    success.innerHTML="";
+                },5000)
+                form.reset();
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
