@@ -233,9 +233,10 @@
                 </table>
 
 
-                <input type="submit" class="form-control" fdprocessedid="galca4" >
+                <button type="submit" onclick="showSuccessMessage()" align="center">Submit</button>
                 <br>
-                <span id="Success"></span><br>
+                <span class="form-control" id="Success" bgcolor="black"></span><br>
+                
             </form>
             
         </div>
@@ -263,6 +264,9 @@
             })
             .catch(error => console.error('Error!', error.message))
         })
+        function showSuccessMessage() {
+        alert("Success! Your form has been submitted.");
+    }
       </script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
