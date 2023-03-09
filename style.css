@@ -46,6 +46,8 @@
         .jumbotron {
             background-color: f8f9fa;
             border: 10px;
+            text-align: center;
+            background-color: #30e4d2;
         }
 
         /* Add shortcut key to footer links */
